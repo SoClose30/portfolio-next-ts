@@ -1,5 +1,6 @@
 import Head from "next/head";
 import NavBar from "../NavBar";
+import ResNavBar from "../ResNavBar";
 
 interface MainLayoutProps {
 	children: React.ReactNode;
@@ -16,6 +17,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
 				/>
 			</Head>
 			<NavBar />
+			<ResNavBar />
 			{children}
 		</>
 	);

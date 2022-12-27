@@ -5,7 +5,7 @@ const NavBar = () => {
 	const { scrollYProgress } = useScroll();
 	return (
 		<>
-			<nav className="w-full h-[80px] fixed top-0 left-0 flex items-center justify-center px-20 z-[100]">
+			<nav className="w-full h-[80px] fixed top-0 left-0 hidden md:flex items-center justify-center px-20 z-[100]">
 				<ul className="flex gap-20 text-xs font-light items-center text-gray-100 bg-[#151515] border-[1px] border-[#FFFFFF22] px-4 py-2 relative">
 					<motion.span
 						style={{ scaleX: scrollYProgress, transformOrigin: "left" }}

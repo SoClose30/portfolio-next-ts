@@ -1,8 +1,8 @@
 const ProjectsSection = () => {
 	return (
 		<>
-			<section id="projects" className="w-full h-[100vh] bg-white p-14 relative flex flex-col">
-				<h2 className="font-bold tracking-tighter leading-[80px] text-6xl bg-gradient-to-r from-yellow-400 to-blue-400 bg-clip-text text-transparent">
+			<section id="projects" className="w-full h-[100vh] bg-white py-10 px-5 md:p-20 relative flex justify-center">
+				<h2 className="font-bold tracking-tighter md:left-20 text-2xl md:text-6xl bg-gradient-to-r from-yellow-400 to-blue-400 bg-clip-text text-transparent inline-block absolute">
 					I have something to show you
 				</h2>
 				<div className="w-[90vw] h-full flex items-center justify-center self-center">
