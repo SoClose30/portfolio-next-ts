@@ -25,16 +25,24 @@ const ResNavBar = () => {
 				>
 					<ul className="text-white flex flex-col gap-10 -translate-y-10">
 						<li>
-							<Link href="#top">Home</Link>
+							<Link href="#top" onClick={() => handleOpen()}>
+								Home
+							</Link>
 						</li>
 						<li>
-							<Link href="#aboutme">About Me</Link>
+							<Link href="#aboutme" onClick={() => handleOpen()}>
+								About Me
+							</Link>
 						</li>
 						<li>
-							<Link href="#future">Future</Link>
+							<Link href="#future" onClick={() => handleOpen()}>
+								Future
+							</Link>
 						</li>
 						<li>
-							<Link href="#projects">Projects</Link>
+							<Link href="#projects" onClick={() => handleOpen()}>
+								Projects
+							</Link>
 						</li>
 					</ul>
 				</div>
