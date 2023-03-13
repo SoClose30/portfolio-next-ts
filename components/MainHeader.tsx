@@ -1,11 +1,29 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const MainHeader = () => {
+
+	const [lightY, setLightY] = useState(0);
+	const [lightX, setLightX] = useState(0);
+	const [scroll, setScroll] = useState("0");
+
+	useEffect(() => {
+		window.addEventListener("mousemove", (e) => {
+			setLightY(-e.screenY - 100);
+			setLightX(-e.screenX - 400);
+		})
+		window.addEventListener("scroll", () => {
+			setScroll(window.scrollY / 20 + "px")
+		})
+	}, [])
+
+
 	return (
 		<>
-			<header className="w-[100vw] h-[650px] bg-black flex">
-				<div className="hidden md:flex w-6/12 h-full items-center justify-center flex-col">
+			<header className="w-[100vw] h-[650px] bg-gradient-to-tr from-slate-900 to-[#151515] flex realtive" style={{filter: `blur(${scroll})`}}>
+				<div className={`light-effect w-[600px] h-[600px] bg-[#9999FF50] backdrop-invert rounded-full blur-3xl absolute translate-x-[100vw] translate-y-[100vh]`} style={{top: lightY, left: lightX}}></div>
+				<div className="hidden md:flex w-6/12 h-full items-center justify-center flex-col z-10">
 					<div>
 						<h1 className="font-extralight tracking-tighter text-6xl bg-gradient-to-r from-yellow-400 to-blue-400 bg-clip-text text-transparent">
 							Emmanuel Salvo
@@ -21,7 +39,7 @@ const MainHeader = () => {
 						</div>
 					</div>
 				</div>
-				<div className="w-full md:w-6/12 h-full flex items-center justify-center relative">
+				<div className="w-full md:w-6/12 h-full flex items-center justify-center relative z-10">
 					<div className="relative md:w-[350px] md:h-[350px] w-[80%] h-[60%] bg-[#151515] rounded-md z-50 grid grid-cols-3 grid-rows-3 place-items-center">
 						<p className="absolute top-0 text-white bg-blue-500 w-full text-center -translate-y-4">Technologies Stack</p>
 						<Image src="/assets/logos/html.svg" width={50} height={50} alt="Tecnología conocida por Emmanuel Salvo" />

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { ProjectProvider } from "../../providers/ProjectProvider";
 import NavBar from "../NavBar";
 import ResNavBar from "../ResNavBar";
 
@@ -22,7 +23,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
 			</Head>
 			<NavBar />
 			<ResNavBar />
-			{children}
+			<ProjectProvider>{children}</ProjectProvider>
 		</>
 	);
 };

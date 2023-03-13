@@ -1,23 +1,28 @@
 import Image from "next/image";
-import Link from "next/link";
+import React, { useState } from "react";
+import { ContextTypes, ProjectContext } from "../../providers/ProjectProvider";
+import ProjectInfo from "./ProjectInfo";
 
 type Props = {
 	title: string;
 	description: string;
 	link: string;
 	image: string;
+	isLocal: boolean;
+	technologies?: string;
 };
 
-const Project = ({ title, description, link, image }: Props) => {
+const Project = ({ title, description, link, image, isLocal, technologies }: Props) => {
+
+	const [isOpen, setIsOpen] = useState(false);
+
 	return (
 		<>
-			<div className="flex flex-col w-[350px] h-[270px] items-center shadow-md rounded-xl relative overflow-hidden group">
-				<div className="transition-all absolute w-0 h-full bg-[#00000055] backdrop-blur-lg top-0 left-0 z-50 flex items-center justify-center overflow-hidden group-hover:w-full">
-					<Link href={link} className="text-white" target="_blank">
-						Visit
-					</Link>
+			<div className={`transition-all duration-500 flex flex-col ${isOpen && isLocal ? "w-[100vw] h-[100vh] fixed top-0 z-[200]" : "w-[500px] h-[300px] md:h-[350px] relative"} ${!isOpen && "hover:scale-105"} items-center shadow-xl shadow-[#15151544] rounded-[4px] group`}>
+				<div className={`transition-all duration-500 absolute h-full bg-[#FFF] backdrop-blur-lg top-0 left-0 z-50 flex items-center justify-center overflow-hidden ${isOpen && isLocal ? "w-full" : "w-0 group-hover:w-full"}`}>
+					<ProjectInfo link={link} title={title} description={description} isLocal={isLocal} technologies={technologies} stateHandler={{isOpen, setIsOpen}} />
 				</div>
-				<p className="bg-blue-500 text-white py-2 w-full text-center">{title}</p>
+				<p className="bg-black text-white py-2 w-full text-center rounded-t-[4px]">{title}</p>
 				<div className="relative w-full h-[500px] bg-black">
 					<Image src={image} alt="" fill={true} />
 				</div>
